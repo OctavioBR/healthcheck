@@ -180,3 +180,14 @@ table th {
   padding: 5px 8px;
   margin-bottom: 10px;
 }
+
+.approve {
+  margin-left: 5px;
+}
+
+.vote-btn {
+  padding: 2px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 2em;
+}

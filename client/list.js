@@ -34,6 +34,18 @@ var resp = [{
 				row.appendChild(td);
 			}
 
+			var approve = document.createElement("td");
+			approve.classList.add("approve");
+			var up = document.createElement("button");
+			up.classList.add("vote-btn");
+			up.innerHTML = "👍";
+			var down = document.createElement("button");
+			down.classList.add("vote-btn");
+			down.innerHTML = "👎";
+			approve.appendChild(up);
+			approve.appendChild(down);
+			row.appendChild(approve);
+
 			table.appendChild(row);
 		});
 	}

@@ -53,11 +53,11 @@ var resp = [{
 	function showCNS(v) {
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener("load", function onSuccess(event) {
-			// var resp = event.target.responseText;
-			showModal(resp);
+			var resp = event.target.responseText;
+			// showModal(resp); // TODO: Remove Mock
 		});
 
-		xhr.open("GET", `/api/paciente?cns=${v}`);
+		xhr.open("GET", `http://localhost:4000/paciente?cns=${v}`);
 		xhr.send();
 	}
 

@@ -10,14 +10,22 @@
 		var table = document.querySelector("#items-display");
 		
 		data.forEach(function (item) {
-			var cols = Object.values(item).map(function (v) {
-				return "<td>"+v+"</td>";
-			});
+			var row = document.createElement("tr");
 			
-			var cns = item.documento;
-			cols[4] = `<td><a href="javascript:showCNS(${cns})"> ${cns} </a></td>`;
-			var row = document.createElement("tr")
-			row.innerHTML = cols.join("");
+			for (var k in item) {
+				var td = document.createElement("td");
+				if (k === "documento") {
+					var a = document.createElement("a");
+					a.onclick = showCNS.bind(null, item[k]);
+					a.innerHTML = item[k];
+					a.href = "javascript:void(0);";
+					td.appendChild(a);
+				} else {
+					td.innerHTML = item[k];
+				}
+				row.appendChild(td);
+			}
+
 			table.appendChild(row);
 		});
 	}

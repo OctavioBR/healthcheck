@@ -8,6 +8,16 @@ var store = [{
 	cidadao: "O D N",
 	nascimento: "13-05-1990",
 	descricao_procedimento: "Atendimento medico"
+},{
+	warning: "",
+	pos: "2",
+	classificacao: "3 - Verde",
+	tipo_list: "Regulada",
+	documento: "1f310584800394",
+	data_solicitacao: "08-11-2017",
+	cidadao: "F C N",
+	nascimento: "13-05-1990",
+	descricao_procedimento: "Atendimento medico"
 }];
 
 (function () {

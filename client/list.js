@@ -1,3 +1,11 @@
+var resp = [{
+	tipo_fila: "regulada",
+	procedimento: "atendimento medico",
+	data_solicitacao: "10-05-2017",
+	unidade_solicitante: "9485094",
+	posicao_fila: "4"
+}];
+
 (function () {
 	"use strict";
 	
@@ -6,7 +14,7 @@
 	});
 	
 	function init() {
-		var data = JSON.parse(localStorage.getItem('list'));
+		var data = JSON.parse(localStorage.getItem("list"));
 		var table = document.querySelector("#items-display");
 		
 		data.forEach(function (item) {
@@ -31,6 +39,51 @@
 	}
 	
 	function showCNS(v) {
-		console.log(v);
+		var xhr = new XMLHttpRequest();
+		xhr.addEventListener("load", function onSuccess(event) {
+			// var resp = event.target.responseText;
+			showModal(resp);
+		});
+
+		xhr.open("GET", `/paciente?cns=${v}`);
+		xhr.send();
+	}
+	
+	function showModal(data) {
+		var modal = document.querySelector("#cns-modal");
+		var table = document.createElement("table");
+		
+		var close = document.createElement("button");
+		close.innerHTML = "X";
+		close.onclick = function () {
+			modal.innerHTML = null;
+			modal.style.display = "block";
+		}
+		modal.appendChild(close);
+		
+		var table = document.createElement("table");
+
+		var tr = document.createElement("tr");
+
+		var ths = ["Tipo da Fila","Procedimento","Data da Solicitação","Unidade Solicitante","Posição na Fila"];
+		ths.forEach(function (th) {
+			var el = document.createElement("th");
+			el.innerHTML = th;
+			tr.appendChild(el);
+		});
+
+		data.forEach(function (item) {
+			var row = document.createElement("tr");
+			for (var k in item) {
+				var td = document.createElement("td");
+				td.innerHTML = item[k];
+				row.appendChild(td);
+			}
+			table.appendChild(row);
+		});
+		
+		modal.appendChild(table);
+		
+		modal.style.display = "block";
 	}
 })();

@@ -34,12 +34,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15%;
+  padding: 20px 15%;
 }
 
-.banner > h1, .banner > .logo-img {
-  flex: auto;
+.banner > h1 {
+  display: inline-block;
 }
+
+.banner > .logo-img {
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
+
 
 .logo-img {
   width: 10px;
@@ -77,6 +85,7 @@ a:hover, a:active { color: #E55C5C; }
 button, input[type="submit"] {
   border: solid 1px #11ED95;
   color: #11ED95;
+  background-color: #FFFFFF;
   box-shadow: none;
   padding: 10px;
   cursor: pointer;

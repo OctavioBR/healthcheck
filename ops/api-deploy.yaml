@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 2
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      labels:
+        app: api
+        team: hacking-health
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: api
+        image: octaviorichter/healthcheck-api:beta
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+          name: service

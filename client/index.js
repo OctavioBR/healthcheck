@@ -38,7 +38,7 @@ var store = [{
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener("load", onSuccess); // Success callback
 		xhr.addEventListener("error", onError); // Error Handling
-		xhr.open("GET", `/escopo?cnes=${cnes}&procedimento=${proc}`);
+		xhr.open("GET", `/api/escopo?cnes=${cnes}&procedimento=${proc}`);
 		xhr.send();
 	}
 
@@ -64,7 +64,7 @@ var store = [{
 				console.log("suggesting", resp);
 				suggest(resp);
 			});
-			xhr.open("GET", `/autocnes?cnes=${term}`);
+			xhr.open("GET", `/api/autocnes?cnes=${term}`);
 		},
 		onSelect: function(e, term, item){
 			console.log(e, term, item);
@@ -83,7 +83,7 @@ var store = [{
 				console.log("suggesting", resp);
 				suggest(resp);
 			});
-			xhr.open("GET", `/autoproc?procedimeto=${term}`);
+			xhr.open("GET", `/api/autoproc?procedimeto=${term}`);
 		},
 		onSelect: function(e, term, item){
 			console.log(e, term, item);

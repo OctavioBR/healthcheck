@@ -57,7 +57,7 @@ var resp = [{
 			showModal(resp);
 		});
 
-		xhr.open("GET", `/paciente?cns=${v}`);
+		xhr.open("GET", `/api/paciente?cns=${v}`);
 		xhr.send();
 	}
 

@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.global-static-ip-name: nginx-static-ip
+  name: healthcheck
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: webapp
+          servicePort: 80
+      - path: /api/
+        backend:
+          serviceName: api
+          servicePort: 80

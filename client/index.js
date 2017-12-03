@@ -22,6 +22,7 @@ var store = [{
 
 (function () {
 	"use strict";
+
 	window.addEventListener("load", function () {
 		var form = document.getElementById("initialForm");
 		form.addEventListener("submit", function (event) {
@@ -29,25 +30,63 @@ var store = [{
 			sendData(form);
 		});
 	});
-	
+
 	function sendData(form) {
 		var cnes = form.querySelector("#cnes").value;
 		var proc = form.querySelector("#proc").value;
-		
+
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener("load", onSuccess); // Success callback
 		xhr.addEventListener("error", onError); // Error Handling
 		xhr.open("GET", `/escopo?cnes=${cnes}&procedimento=${proc}`);
 		xhr.send();
 	}
-	
+
 	function onSuccess(event) {
 		localStorage.setItem('list', JSON.stringify(store));
 		// localStorage.setItem('list', JSON.stringify(event.target.responseText));
 		window.location.href = window.location + "list.html";
 	}
-	
+
 	function onError(event) {
 		console.log('Network error');
 	}
+
+	new autoComplete({
+		selector: 'input[name="Cnes"]',
+		minChars: 2,
+		source: function query(term, suggest) {
+			term = term.toUpperCase();
+
+			var xhr = new XMLHttpRequest();
+			xhr.addEventListener("load", function (event) {
+				var resp = event.target.responseText;
+				console.log("suggesting", resp);
+				suggest(resp);
+			});
+			xhr.open("GET", `/autocnes?cnes=${term}`);
+		},
+		onSelect: function(e, term, item){
+			console.log(e, term, item);
+		}
+	});
+
+	new autoComplete({
+		selector: 'input[name="Procedimento"]',
+		minChars: 2,
+		source: function query(term, suggest) {
+			term = term.toUpperCase();
+
+			var xhr = new XMLHttpRequest();
+			xhr.addEventListener("load", function (event) {
+				var resp = event.target.responseText;
+				console.log("suggesting", resp);
+				suggest(resp);
+			});
+			xhr.open("GET", `/autoproc?procedimeto=${term}`);
+		},
+		onSelect: function(e, term, item){
+			console.log(e, term, item);
+		}
+	});
 })();

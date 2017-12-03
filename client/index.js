@@ -43,8 +43,8 @@ var store = [{
 	}
 
 	function onSuccess(event) {
-		localStorage.setItem('list', JSON.stringify(store));
-		// localStorage.setItem('list', JSON.stringify(event.target.responseText));
+		// localStorage.setItem('list', JSON.stringify(store)); // TODO: remove mock
+		localStorage.setItem('list', JSON.stringify(event.target.responseText));
 		window.location.href = window.location + "list.html";
 	}
 
@@ -64,7 +64,7 @@ var store = [{
 				console.log("suggesting", resp);
 				suggest(resp);
 			});
-			xhr.open("GET", `/api/autocnes?cnes=${term}`);
+			xhr.open("GET", `http://localhost:4000/autocnes?cnes=${term}`);
 		},
 		onSelect: function(e, term, item){
 			console.log(e, term, item);
@@ -83,7 +83,7 @@ var store = [{
 				console.log("suggesting", resp);
 				suggest(resp);
 			});
-			xhr.open("GET", `/api/autoproc?procedimeto=${term}`);
+			xhr.open("GET", `http://localhost:4000/autoproc?procedimeto=${term}`);
 		},
 		onSelect: function(e, term, item){
 			console.log(e, term, item);

@@ -8,18 +8,18 @@ var resp = [{
 
 (function () {
 	"use strict";
-	
+
 	window.addEventListener("load", function () {
 		init();
 	});
-	
+
 	function init() {
 		var data = JSON.parse(localStorage.getItem("list"));
 		var table = document.querySelector("#items-display");
-		
+
 		data.forEach(function (item) {
 			var row = document.createElement("tr");
-			
+
 			for (var k in item) {
 				var td = document.createElement("td");
 				if (k === "documento") {
@@ -37,7 +37,7 @@ var resp = [{
 			table.appendChild(row);
 		});
 	}
-	
+
 	function showCNS(v) {
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener("load", function onSuccess(event) {
@@ -48,19 +48,19 @@ var resp = [{
 		xhr.open("GET", `/paciente?cns=${v}`);
 		xhr.send();
 	}
-	
+
 	function showModal(data) {
 		var modal = document.querySelector("#cns-modal");
 		var table = document.createElement("table");
-		
+
 		var close = document.createElement("button");
 		close.innerHTML = "X";
 		close.onclick = function () {
 			modal.innerHTML = null;
-			modal.style.display = "block";
+			modal.style.display = "none";
 		}
 		modal.appendChild(close);
-		
+
 		var table = document.createElement("table");
 
 		var tr = document.createElement("tr");
@@ -72,6 +72,8 @@ var resp = [{
 			tr.appendChild(el);
 		});
 
+		table.appendChild(tr);
+
 		data.forEach(function (item) {
 			var row = document.createElement("tr");
 			for (var k in item) {
@@ -81,9 +83,9 @@ var resp = [{
 			}
 			table.appendChild(row);
 		});
-		
+
 		modal.appendChild(table);
-		
+
 		modal.style.display = "block";
 	}
 })();

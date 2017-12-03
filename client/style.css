@@ -1,0 +1,15 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 960px;
+  color: #8C8E9C;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: BaronNeueBlack, Helvetica, Arial, sans-serif;
+  background-color: #F8F9FB;
+  
+}
+
+a { color: #3CB5C6; }
+a:hover, a:active { color: #34A2B2; }

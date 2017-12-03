@@ -12,8 +12,8 @@
 
 (def conn
   (m/make-connection "hh"
-                     :host "127.0.0.1"
-                     :port 27017))
+                     :host (System/getenv "MONGO_SERVICE_HOST")
+                     :port (read-string (System/getenv "MONGO_SERVICE_PORT"))))
 (m/set-connection! conn)
 
 

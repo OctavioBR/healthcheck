@@ -1,23 +1,63 @@
 var store = [{
-	warning: "!",
+	warning: "❗",
 	pos: "1",
 	classificacao: "3 - Verde",
 	tipo_list: "Regulada",
-	documento: "12340987102394",
+	documento: "898001154992774",
 	data_solicitacao: "28-07-2017",
 	cidadao: "O D N",
 	nascimento: "13-05-1990",
-	descricao_procedimento: "Atendimento medico"
+	descricao_procedimento: "RAIO X CONTRASTADO PEDIATRICO"
+},{
+	warning: "❗",
+	pos: "22",
+	classificacao: "2 - Amarelo",
+	tipo_list: "Regulada",
+	documento: "898050092758632",
+	data_solicitacao: "08-11-2017",
+	cidadao: "F C N",
+	nascimento: "13-05-1990",
+	descricao_procedimento: "RAIO X CONTRASTADO PEDIATRICO"
+},{
+	warning: "❗",
+	pos: "45",
+	classificacao: "3 - Verde",
+	tipo_list: "Regulada",
+	documento: "898001154946136",
+	data_solicitacao: "21-10-2017",
+	cidadao: "J S D S",
+	nascimento: "13-05-1990",
+	descricao_procedimento: "RAIO X CONTRASTADO PEDIATRICO"
+},{
+	warning: "",
+	pos: "9",
+	classificacao: "1 - Vermelho",
+	tipo_list: "Regulada",
+	documento: "898002837216919",
+	data_solicitacao: "06-06-2017",
+	cidadao: "M D P O",
+	nascimento: "13-05-1990",
+	descricao_procedimento: "RAIO X CONTRASTADO PEDIATRICO"
+},{
+	warning: "",
+	pos: "6",
+	classificacao: "1 - Vermelho",
+	tipo_list: "Regulada",
+	documento: "898002388212547",
+	data_solicitacao: "04-08-2017",
+	cidadao: "L C",
+	nascimento: "13-05-1990",
+	descricao_procedimento: "RAIO X CONTRASTADO PEDIATRICO"
 },{
 	warning: "",
 	pos: "2",
 	classificacao: "3 - Verde",
 	tipo_list: "Regulada",
-	documento: "1f310584800394",
-	data_solicitacao: "08-11-2017",
-	cidadao: "F C N",
+	documento: "898002907697953",
+	data_solicitacao: "11-03-2017",
+	cidadao: "Y V",
 	nascimento: "13-05-1990",
-	descricao_procedimento: "Atendimento medico"
+	descricao_procedimento: "RAIO X CONTRASTADO PEDIATRICO"
 }];
 
 (function () {

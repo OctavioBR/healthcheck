@@ -1,15 +1,107 @@
 body {
   margin: 0 auto;
   padding: 0;
-  width: 100%;
-  max-width: 960px;
-  color: #8C8E9C;
+  /*color: #8C8E9C;*/
   font-size: 14px;
   font-weight: 400;
   font-family: BaronNeueBlack, Helvetica, Arial, sans-serif;
-  background-color: #F8F9FB;
-  
+  /*background-color: #F8F9FB;*/
 }
 
-a { color: #3CB5C6; }
-a:hover, a:active { color: #34A2B2; }
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container { width: 85%; padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .container { width: 80%; }
+}
+
+.banner {
+  width: 100%;
+  background-color: #20206c;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15%;
+}
+
+.banner > h1, .banner > .logo-img {
+  flex: auto;
+}
+
+.logo-img {
+  width: 10px;
+}
+
+#initialForm h2 {
+  font-size: 1.1em;
+  font-weight: normal;
+}
+
+#initialForm label {
+  display: inline-block;
+  width: 90px;
+}
+
+#initialForm br {
+  height: 5px;
+}
+
+#initialForm input[type="text"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+a { color: #FF6767; }
+
+a:hover, a:active { color: #E55C5C; }
+
+button, input[type="submit"] {
+  border: solid 1px #11ED95;
+  color: #11ED95;
+  box-shadow: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition-duration: 0.1s;
+}
+
+button:hover, input[type="submit"]:hover {
+  color: #FFFFFF;
+  background-color: #11ED95;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 2em;
+  color: #FFFFFF;
+  background-color: #20206c;
+  text-align: center;
+}
+
+footer svg {
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  color: #FF6767;
+}

@@ -28,7 +28,7 @@
   (let [qry-str (select-keys (:query-params req) ["cns"])]
     (content-type (response (generate-string
                               ((comp vec set)
-                               (map #(dissoc % :_id) (m/fetch :lista_espera :where {:cns (get qry-str "cns") :servico "Exame" :tipo_lista "Regulada"})))))
+                               (map #(dissoc % :_id) (m/fetch :lista_espera :where {:cns (get qry-str "cns") :servico "Exame"})))))
                   "application/json")))
 
 (defn escopo [req]
@@ -48,7 +48,7 @@
                               ((comp vec set)
                                 (map
                                 (comp #(select-keys % [:central_regulacao]) #(dissoc % :_id))
-                                (m/fetch :lista_espera :where {:central_regulacao {:$regex (str ".*" (get qry-str "cnes") ".*")} :tipo_lista "Regulada"}) ))))
+                                (m/fetch :lista_espera :where {:central_regulacao {:$regex (str ".*" (get qry-str "cnes") ".*")}}) ))))
                   "application/json")))
 
 (defn autoproc [req]
@@ -57,7 +57,7 @@
                               ((comp vec set)
                                 (map
                                 (comp #(select-keys % [:procedimento :codigo_procedimento]) #(dissoc % :_id))
-                                (m/fetch :lista_espera :where {:procedimento {:$regex (str (get qry-str "procedimento") ".*")} :tipo_lista "Regulada"})))))
+                                (m/fetch :lista_espera :where {:procedimento {:$regex (str (get qry-str "procedimento") ".*")}})))))
                   "application/json")))
 
 (def router (make-handler

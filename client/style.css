@@ -76,6 +76,12 @@ body {
   box-shadow: none;
   box-sizing: border-box;
   margin-bottom: 15px;
+  transition: 0.5s;
+  width: 80%;
+}
+
+#initialForm input[type="text"]:focus {
+  border-color: #11ED95;
 }
 
 a { color: #FF6767; }
@@ -123,6 +129,8 @@ footer svg {
 
 table {
   border: 1px solid #cbcbcb;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table td,
